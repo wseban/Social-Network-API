@@ -31,9 +31,9 @@ module.exports = {
         });
     },
     // create a new student
-    createStudent(req, res) {
-      Student.create(req.body)
-        .then((student) => res.json(student))
+    createUser(req, res) {
+      User.create(req.body)
+        .then((userData) => res.json(userData))
         .catch((err) => res.status(500).json(err));
     },
     // Delete a student and remove them from the course
