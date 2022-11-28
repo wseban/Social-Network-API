@@ -73,15 +73,16 @@ module.exports = {
         )
             .then((thoughtData) => {
                 if(!thoughtData){
-                    return res.status(404).json({message: "No thought with this id"})
+                 return res.status(404).json({message: "No thought with this id"})
                 }
-                return User.findOneAndUpdate(
+                res.json({message: "success"})
+                 return User.findOneAndUpdate(
                     {thoughts: req.params.thoughtId},
                     {$pull: {thoughts: req.params.thoughtId}},
                     {new: true}
-                )
-            }
-            )
+                );
+                
+            })
             .catch((err) => res.status(500).json(err));
     },
 
